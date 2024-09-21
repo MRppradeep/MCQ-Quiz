@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question div {
+            margin-bottom: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>MCQ Quiz</h2>
+
+<div class="question">
+    <div>1. ශ්‍රී ලංකාවේ රාජධානිය කුමක්ද?</div>
+    <input type="radio" name="q1" value="a"> කෝට්ටේ <br>
+    <input type="radio" name="q1" value="b"> අනුරාධපුරය <br>
+    <input type="radio" name="q1" value="c"> පොළොන්නරුව <br>
+</div>
+
+<div class="question">
+    <div>2. සමාජ විද්‍යාවෙහි පදනම් වාර්තාව කුමක්ද?</div>
+    <input type="radio" name="q2" value="a"> විද්‍යාත්මක පරික්ෂණය <br>
+    <input type="radio" name="q2" value="b"> මූලාශ්‍ර ගවේෂණය <br>
+    <input type="radio" name="q2" value="c"> මූලික සෞඛ්‍ය සේවා <br>
+</div>
+
+<div class="question">
+    <div>3. ශ්‍රී ලාංකීය මුස්ලිම් පන්තියක් ලෙස කවර එකක් හැඳින්වේද?</div>
+    <input type="radio" name="q3" value="a"> සින්හල <br>
+    <input type="radio" name="q3" value="b"> මල්ලික්කාර් <br>
+    <input type="radio" name="q3" value="c"> වාහාලුකාර <br>
+</div>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<div id="result"></div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: "b",
+            q2: "a",
+            q3: "b"
+        };
+
+        let score = 0;
+        let total = 3;
+
+        for (let i = 1; i <= total; i++) {
+            const radios = document.getElementsByName('q' + i);
+            for (const radio of radios) {
+                if (radio.checked && radio.value === answers['q' + i]) {
+                    score++;
+                }
+            }
+        }
+
+        document.getElementById('result').innerHTML = "You scored " + score + " out of " + total;
+    }
+</script>
+
+</body>
+</html>
